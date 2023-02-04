@@ -1,7 +1,7 @@
 ---
 layout: contact
 title: Contact
-permalink: /map_draft.html
+permalink: /contact
 section: contact
 intro_paragraph: |-
 

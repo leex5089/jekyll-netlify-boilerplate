@@ -4,5 +4,7 @@ layout: default
 
 <h2>{{ page.title }}</h2>
 
-  {% include map_draft.html %}
-
+ 
+{% block content %}
+ {% include map_draft.html %}
+{% endblock %} 

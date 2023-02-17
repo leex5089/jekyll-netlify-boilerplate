@@ -78,7 +78,7 @@ body { margin: 0; padding: 0; }
  
  
  <div class='quakeInfo'>
- <div><strong><font size="3.7">Effects of Narrow and Broad Early Care and Education Policy Changes
+ <div><strong><font size="3.7">Estimates of Narrow and Broad Early Care and Education Policy Effects
 
   <p></p>
 
@@ -92,7 +92,7 @@ body { margin: 0; padding: 0; }
 
 
 <p></p>
-<strong><font size="2.5"><span>&#167;</span>Change in Maternal Employment</strong> 
+<strong><font size="2.5">Change in Maternal Employment</strong> 
 
 <table class="styled-table"  style="text-align:center">
     <caption style="text-align:left">
@@ -156,7 +156,7 @@ Number of females age 20-64 with children under age 5</caption>
  
 
 
-<strong><font size="2.5"><span>&#167;</span>Change in Mean ECE Household Expenditure</strong> 
+<strong><font size="2.5">Change in Mean ECE Household Expenditure</strong> 
 
 <table class="styled-table"  style="text-align:center"> 
 
@@ -183,7 +183,7 @@ Number of females age 20-64 with children under age 5</caption>
 
 
 
-<strong><font size="2.5"><span>&#167;</span>Change in Children Attending Licensed ECE Providers</strong> 
+<strong><font size="2.5">Change in Children Attending Licensed ECE Providers</strong> 
 
 <table class="styled-table"  style="text-align:center">
     <caption style="text-align:left">
@@ -326,7 +326,7 @@ map.addLayer({
 'visibility': 'visible'
 },
 'paint': {
-'fill-outline-color': '#808080',
+'fill-outline-color': '#000000',
 
 
 'fill-color':[
@@ -337,7 +337,7 @@ map.addLayer({
 ['get', 'base'],
 0, '#daa520 ', 
 ],
-"fill-opacity": 0.7,
+"fill-opacity": 0.8,
 
 },
 'source-layer': 'house_20230216-camiji',
@@ -514,7 +514,7 @@ map.on('mousemove',function(e){
         layers: ['house_20230216-camiji']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('exp_ba').innerHTML = '$'+ZCTA5CE10[0].properties.exp_ba.toFixed(1) ;
+        document.getElementById('exp_ba').innerHTML = '$'+ZCTA5CE10[0].properties.exp_ba.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;
     } else {
         document.getElemnentById('exp_ba').innerHTML ='exp_ba';
     }
@@ -528,7 +528,7 @@ map.on('mousemove',function(e){
         layers: ['house_20230216-camiji']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('exp_diff_n').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_n.toFixed(1) ;
+        document.getElementById('exp_diff_n').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;
     } else {
         document.getElemnentById('exp_diff_n').innerHTML ='exp_diff_n';
     }
@@ -540,7 +540,7 @@ map.on('mousemove',function(e){
         layers: ['house_20230216-camiji']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('exp_diff_b').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_b.toFixed(1) ;
+        document.getElementById('exp_diff_b').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_b.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;
     } else {
         document.getElemnentById('exp_diff_b').innerHTML ='exp_diff_b';
     }

@@ -4,6 +4,5 @@ title:
 permalink: /
 section: home
 intro_paragraph: >
-  This project provide legislative district map on child care access and policy impact. The measure is derived from census and access from [ChildCareAccess.org](http://childcareaccess.org/).
-
+  Effects of Narrow and Broad Early Care and Education Policy Changes. 
 ---

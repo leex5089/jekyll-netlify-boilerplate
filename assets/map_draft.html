@@ -18,15 +18,49 @@ body { margin: 0; padding: 0; }
 </head>
 <body>
 <style>
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #5b87c2;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #5b87c2;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
 
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #d3deed;
+}
 
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #5b87c2;
+}
 .quakeInfo {
   position: absolute;
   font-family: sans-serif;
   margin-top: 5px;
   margin-left: 5px;
   padding: 5px;
-  width: 40%;
+  width: 30%;
   border: 2px solid black;
   font-size: 18px;
   color: #000000;
@@ -41,28 +75,207 @@ body { margin: 0; padding: 0; }
  
  
  <div class='quakeInfo'>
- <div><strong><font size="4">Impact of increased Minnesota ECE investment by Legislative district
+ <div><strong><font size="3.7">Effects of Narrow and Broad Early Care and Education Policy Changes
+
+  <p></p>
+
 </font></strong>  </div>
-          <div><strong><font size="4">House District:</strong> <span id='house_dist'></span></div>
-
-          <div><strong><font size="3.5">Female with Young Children Employment Share</strong>  </div>
 
 
-          <div><strong><font size="3">Base:</strong> <span id='em_base'></span></div>
-     <div><strong><font size="3">Narrow Policy:</strong> <span id='em_narrow'></span></div>
-  <div><strong><font size="3">Broad Policy:</strong> <span id='em_broad'></span></div>
-            <div><strong> </strong>  </div>
 
-          <div><strong><font size="3.5">ECE Expenditure (annual)</strong>  </div>
+<div><strong><font size="2.6">House District:</strong> <span style="color:blue; font-size:150%; background-color:#dba9a9;" id='DISTRICT'></span></div>
 
-            <div><strong><font size="3">Base:</strong> <span id='ex_base'></span></div>
-     <div><strong><font size="3">Narrow Policy:</strong> <span id='ex_narrow'></span></div>
-  <div><strong><font size="3">Broad Policy:</strong> <span id='ex_broad'></span></div>
+<div><strong><font size="2.6">Number of families with children under 5:</strong> <span style="color:blue; background-color:#dba9a9;" id='n_fam_u5'></span></div>
 
-  <div><strong><font size="1.5">Source: 2021 ACS 5 year estimates; Policy parameters from Borowsky et al (2022).</font></strong>  </div>
 
-</div><div 
->
+<p></p>
+<strong><font size="2.5"><span>&#167;</span>Change in Maternal Employment</strong> 
+
+<table class="styled-table"  style="text-align:center">
+    <caption style="text-align:left">
+Percent of females age 20-64 with children under age 5</caption>
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow</td>
+    <td>Broad</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Employed</td>
+
+    <td><span id='emp_ba'></span></td>
+    <td><span id='emp_n'></span></td>
+    <td><span id='emp_br'></span></td>
+  </tr>
+  <tr>
+    <td>Employed Full Time</td>
+
+    <td><span id='ftemp_ba'></span></td>
+    <td><span id='ftemp_n'></span></td>
+    <td><span id='ftemp_br'></span></td>
+  </tr>  
+</table>
+
+<table class="styled-table"  style="text-align:center">
+    <caption style="text-align:left">
+Number of females age 20-64 with children under age 5</caption>
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow Increase</td>
+    <td>Broad Increase</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Employed</td>
+
+    <td><span id='emp_n_ba'></span></td>
+    <td><span id='emp_n_diff'></span></td>
+    <td><span id='emp_n_di_1'></span></td>
+  </tr>
+  <tr>
+    <td>Employed Full Time</td>
+
+    <td><span id='ftemp_n_ba'></span></td>
+    <td><span id='ftemp_n_di'></span></td>
+    <td><span id='ftemp_n__1'></span></td>
+  </tr>  
+</table>
+ 
+
+
+<strong><font size="2.5"><span>&#167;</span>Change in Mean ECE Household Expenditure</strong> 
+
+<table class="styled-table"  style="text-align:center"> 
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow Savings</td>
+    <td>Broad Savings</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Paying 50 weeks of ECE annually</td>
+
+    <td><span id='exp_ba'></span></td>
+    <td><span id='exp_diff_n'></span></td>
+    <td><span id='exp_diff_b'></span></td>
+  </tr>
+   
+</table>
+
+
+
+
+<strong><font size="2.5"><span>&#167;</span>Change in Children Attending Licensed ECE Providers</strong> 
+
+<table class="styled-table"  style="text-align:center">
+    <caption style="text-align:left">
+Percent of families with children under age 5 using licensed ECE providers</caption>
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow</td>
+    <td>Broad</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Center-based</td>
+
+    <td><span id='ccc_use_ba'></span></td>
+    <td><span id='ccc_use_n'></span></td>
+    <td><span id='ccc_use_br'></span></td>
+  </tr>
+  <tr>
+    <td>Home-based</td>
+
+
+    <td><span id='fcc_use_ba'></span></td>
+    <td><span id='fcc_use_n'></span></td>
+    <td><span id='fcc_use_br'></span></td>
+  </tr>  
+</table>
+
+<table class="styled-table"  style="text-align:center">
+    <caption style="text-align:left">
+Number of families with children under age 5 using licensed ECE providers</caption>
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow Increase</td>
+    <td>Broad Increase</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Center-based</td>
+
+    <td><span id='n_ccc_use_'></span></td>
+    <td><span id='n_ccc_diff'></span></td>
+    <td><span id='n_ccc_di_1'></span></td>
+  </tr>
+  <tr>
+    <td>Home-based</td>
+
+
+    <td><span id='n_fcc_use_'></span></td>
+    <td><span id='n_fcc_diff'></span></td>
+    <td><span id='n_fcc_di_1'></span></td>
+  </tr>  
+</table>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+  <div><strong><font size="1.5">Source: Baseline data: 2021 ACS 5 year estimates; Policy parameters: Borowsky et al (2022); ECE use data: ChildCareAccess.org.</font></strong>  </div>
+
+</div> 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoid29ubGVlIiwiYSI6ImNqYjY0bHZlczBvMnAzMm16OTlyYWFzYnYifQ.yaLx92dXVMk1NKp5Fp7HUg';
   // Set bounds to San Francisco, California.
@@ -88,41 +301,47 @@ map.on('load', () => {
 
 
 // Add a custom vector tileset source. This tileset contains
-// point features representing h_expenditure-0usavk. Each feature contains
+// point features representing house_20230216-camiji. Each feature contains
 // three properties. For example:
 // {
 //     alt_name: "Museo Arqueologico",
 //     name: "Museo Inka",
 //     tourism: "museum"
 // }
-map.addSource('h_expenditure-0usavk', {
+map.addSource('house_20230216-camiji', {
 type: 'vector',
-url: 'mapbox://wonlee.6vtxd5qs'
+url: 'mapbox://wonlee.3wzmj61h'
 });
  
  
 map.addLayer({
-'id': 'h_expenditure-0usavk',
+'id': 'house_20230216-camiji',
 'type': 'fill',
-'source': 'h_expenditure-0usavk',
+'source': 'house_20230216-camiji',
 'layout': {
 // Make the layer visible by default.
 'visibility': 'visible'
 },
 'paint': {
+'fill-outline-color': '#808080',
+
+
 'fill-color':[
+
+
 'interpolate',
 ['linear'],
 ['get', 'base'],
-0, '#334ABC', 
+0, '#daa520 ', 
 ],
-"fill-opacity": 0.5  
+"fill-opacity": 0.7,
+
 },
-'source-layer': 'h_expenditure-0usavk',
+'source-layer': 'house_20230216-camiji',
 });
  
 
-
+ 
 
 
 
@@ -138,15 +357,15 @@ map.addLayer({
 
  
 
-map.addSource('h_female_share_emp-3m4gpt', {
+map.addSource('house_20230216-71unnj', {
 type: 'vector',
-url: 'mapbox://wonlee.04dqlj74'
+url: 'mapbox://wonlee.92lez7hc'
 });
  
 map.addLayer({
-'id': 'h_female_share_emp-3m4gpt',
+'id': 'house_20230216-71unnj',
 'type': 'symbol',
-'source': 'h_female_share_emp-3m4gpt',
+'source': 'house_20230216-71unnj',
 'layout': {
 
 'text-field': [
@@ -157,15 +376,15 @@ map.addLayer({
 ],
 'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold']
 },
-'source-layer': 'h_female_share_emp-3m4gpt',
+'source-layer': 'house_20230216-71unnj',
 });
 
 
 
 map.addLayer({
-'id': 'h_female_share_emp-3m4gpt',
+'id': 'house_20230216-71unnj',
 'type': 'fill',
-'source': 'h_female_share_emp-3m4gpt',
+'source': 'house_20230216-71unnj',
 'layout': {
 // Make the layer visible by default.
 'visibility': 'visible'
@@ -179,7 +398,7 @@ map.addLayer({
 ],
 "fill-opacity": 0.25  
 },
-'source-layer': 'h_female_share_emp-3m4gpt',
+'source-layer': 'house_20230216-71unnj',
 });
 
 
@@ -198,12 +417,12 @@ map.addLayer({
 // After the last frame rendered before the map enters an "idle" state.
 map.on('idle', () => {
 // If these two layers were not added to the map, abort
-if (!map.getLayer('h_female_share_emp-3m4gpt') || !map.getLayer('h_expenditure-0usavk')) {
+if (!map.getLayer('house_20230216-71unnj') || !map.getLayer('house_20230216-camiji')) {
 return;
 }
  
 // Enumerate ids of the layers.
-const toggleableLayerIds = ['h_female_share_emp-3m4gpt', 'h_expenditure-0usavk'];
+const toggleableLayerIds = ['house_20230216-71unnj', 'house_20230216-camiji'];
  
 // Set up the corresponding toggle button for each layer.
 for (const id of toggleableLayerIds) {
@@ -256,50 +475,71 @@ layers.appendChild(link);
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['h_expenditure-0usavk']
+        layers: ['house_20230216-camiji']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('house_dist').innerHTML = ZCTA5CE10[0].properties.house_dist ;
+        document.getElementById('DISTRICT').innerHTML = ZCTA5CE10[0].properties.DISTRICT ;
     } else {
-        document.getElemnentById('house_dist').innerHTML ='house_dist';
+        document.getElemnentById('DISTRICT').innerHTML ='DISTRICT';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-camiji']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_fam_u5').innerHTML = ZCTA5CE10[0].properties.n_fam_u5 ;
+    } else {
+        document.getElemnentById('n_fam_u5').innerHTML ='n_fam_u5';
+    }
+});
+
+
+
+
+
+
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-camiji']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('exp_ba').innerHTML = '$'+ZCTA5CE10[0].properties.exp_ba.toFixed(1) ;
+    } else {
+        document.getElemnentById('exp_ba').innerHTML ='exp_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-camiji']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('exp_diff_n').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_n.toFixed(1) ;
+    } else {
+        document.getElemnentById('exp_diff_n').innerHTML ='exp_diff_n';
     }
 });
 
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['h_expenditure-0usavk']
+        layers: ['house_20230216-camiji']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('ex_base').innerHTML = '$'+ZCTA5CE10[0].properties.base.toFixed(1) ;
+        document.getElementById('exp_diff_b').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_b.toFixed(1) ;
     } else {
-        document.getElemnentById('ex_base').innerHTML ='ex_base';
-    }
-});
-
-
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['h_expenditure-0usavk']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('ex_narrow').innerHTML = '$'+ZCTA5CE10[0].properties.narrow.toFixed(1) ;
-    } else {
-        document.getElemnentById('ex_narrow').innerHTML ='ex_narrow';
-    }
-});
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['h_expenditure-0usavk']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('ex_broad').innerHTML = '$'+ZCTA5CE10[0].properties.broad.toFixed(1) ;
-    } else {
-        document.getElemnentById('ex_broad').innerHTML ='ex_broad';
+        document.getElemnentById('exp_diff_b').innerHTML ='exp_diff_b';
     }
 });
  
@@ -312,24 +552,24 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['h_female_share_emp-3m4gpt']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('house_dist').innerHTML = ZCTA5CE10[0].properties.house_dist ;
+        document.getElementById('DISTRICT').innerHTML = ZCTA5CE10[0].properties.DISTRICT ;
     } else {
-        document.getElemnentById('house_dist').innerHTML ='house_dist';
+        document.getElemnentById('DISTRICT').innerHTML ='DISTRICT';
     }
 });
 
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['h_female_share_emp-3m4gpt']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('em_base').innerHTML = ZCTA5CE10[0].properties.base.toFixed(3) ;
+        document.getElementById('emp_ba').innerHTML = ZCTA5CE10[0].properties.emp_ba.toFixed(1)+'%' ;
     } else {
-        document.getElemnentById('em_base').innerHTML ='em_base';
+        document.getElemnentById('emp_ba').innerHTML ='emp_ba';
     }
 });
 
@@ -338,27 +578,320 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['h_female_share_emp-3m4gpt']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('em_narrow').innerHTML = ZCTA5CE10[0].properties.narrow.toFixed(3) ;
+        document.getElementById('emp_n').innerHTML = ZCTA5CE10[0].properties.emp_n.toFixed(1)+'%' ;
     } else {
-        document.getElemnentById('em_narrow').innerHTML ='em_narrow';
+        document.getElemnentById('emp_n').innerHTML ='emp_n';
     }
 });
 
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['h_female_share_emp-3m4gpt']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
-        document.getElementById('em_broad').innerHTML = ZCTA5CE10[0].properties.broad.toFixed(3) ;
+        document.getElementById('emp_br').innerHTML = ZCTA5CE10[0].properties.emp_br.toFixed(1)+'%' ;
     } else {
-        document.getElemnentById('em_broad').innerHTML ='em_broad';
+        document.getElemnentById('emp_br').innerHTML ='emp_br';
     }
 });
  
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_ba.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ftemp_ba').innerHTML ='ftemp_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_n').innerHTML = ZCTA5CE10[0].properties.ftemp_n.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ftemp_n').innerHTML ='ftemp_n';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_br').innerHTML = ZCTA5CE10[0].properties.ftemp_br.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ftemp_br').innerHTML ='ftemp_br';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_n_ba').innerHTML = ZCTA5CE10[0].properties.emp_n_ba.toFixed(0)  ;
+    } else {
+        document.getElemnentById('emp_n_ba').innerHTML ='emp_n_ba';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_n_diff').innerHTML = ZCTA5CE10[0].properties.emp_n_diff.toFixed(0)  ;
+    } else {
+        document.getElemnentById('emp_n_diff').innerHTML ='emp_n_diff';
+    }
+});
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_n_di_1').innerHTML = ZCTA5CE10[0].properties.emp_n_di_1.toFixed(0)  ;
+    } else {
+        document.getElemnentById('emp_n_di_1').innerHTML ='emp_n_di_1';
+    }
+});
+
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ccc_use_ba').innerHTML = ZCTA5CE10[0].properties.ccc_use_ba.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ccc_use_ba').innerHTML ='ccc_use_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ccc_use_n').innerHTML = ZCTA5CE10[0].properties.ccc_use_n.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ccc_use_n').innerHTML ='ccc_use_n';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ccc_use_br').innerHTML = ZCTA5CE10[0].properties.ccc_use_br.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ccc_use_br').innerHTML ='ccc_use_br';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('fcc_use_ba').innerHTML = ZCTA5CE10[0].properties.fcc_use_ba.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('fcc_use_ba').innerHTML ='fcc_use_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('fcc_use_n').innerHTML = ZCTA5CE10[0].properties.fcc_use_n.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('fcc_use_n').innerHTML ='fcc_use_n';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('fcc_use_br').innerHTML = ZCTA5CE10[0].properties.fcc_use_br.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('fcc_use_br').innerHTML ='fcc_use_br';
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_n_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_n_ba.toFixed(0)  ;
+    } else {
+        document.getElemnentById('ftemp_n_ba').innerHTML ='ftemp_n_ba';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_n_di').innerHTML = ZCTA5CE10[0].properties.ftemp_n_di.toFixed(0)  ;
+    } else {
+        document.getElemnentById('ftemp_n_di').innerHTML ='ftemp_n_di';
+    }
+});
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_n__1').innerHTML = ZCTA5CE10[0].properties.ftemp_n__1.toFixed(0)  ;
+    } else {
+        document.getElemnentById('ftemp_n__1').innerHTML ='ftemp_n__1';
+    }
+});
+
+
+ 
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_ccc_use_').innerHTML = ZCTA5CE10[0].properties.n_ccc_use_.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_ccc_use_').innerHTML ='n_ccc_use_';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_ccc_diff').innerHTML = ZCTA5CE10[0].properties.n_ccc_diff.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_ccc_diff').innerHTML ='n_ccc_diff';
+    }
+});
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_ccc_di_1').innerHTML = ZCTA5CE10[0].properties.n_ccc_di_1.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_ccc_di_1').innerHTML ='n_ccc_di_1';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_fcc_use_').innerHTML = ZCTA5CE10[0].properties.n_fcc_use_.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_fcc_use_').innerHTML ='n_fcc_use_';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_fcc_diff').innerHTML = ZCTA5CE10[0].properties.n_fcc_diff.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_fcc_diff').innerHTML ='n_fcc_diff';
+    }
+});
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['house_20230216-71unnj']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_fcc_di_1').innerHTML = ZCTA5CE10[0].properties.n_fcc_di_1.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_fcc_di_1').innerHTML ='n_fcc_di_1';
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 

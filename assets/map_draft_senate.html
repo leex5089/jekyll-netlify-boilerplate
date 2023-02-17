@@ -1,0 +1,905 @@
+<script>
+  import Seo from '$lib/Seo.svelte';
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Show and hide layers</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.styled-table {
+
+  width: 90%;
+  height: 2%;  
+     border-collapse: collapse;
+    margin: 5px 0;
+    font-size: 1em;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #5b87c2;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #5b87c2;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #d3deed;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #5b87c2;
+}
+.quakeInfo {
+  position: relative;
+  font-family: sans-serif;
+  margin-top: 5px;
+  margin-left: 5px;
+  padding: 5px;
+  width: 32%;
+  height: 95%;
+  border: 2px solid black;
+  font-size: 18px;
+  color: #000000;
+  background-color: rgba(240, 255, 255, 0.8);
+  border-radius: 1px;
+}
+
+</style>
+ 
+<nav id="menu"></nav>
+<div id="map"></div>
+ 
+ 
+ <div class='quakeInfo'>
+ <div><strong><font size="3.7">Estimates of Narrow and Broad Early Care and Education Policy Effects
+
+  <p></p>
+
+</font></strong>  </div>
+
+
+
+<div><strong><font size="2.6">Senate District:</strong> <span style="color:blue; font-size:150%; background-color:#dba9a9;" id='DISTRICT'></span></div>
+
+<div><strong><font size="2.6">Number of families with children under 5:</strong> <span style="color:blue" id='n_fam_u5'></span></div>
+
+
+<p></p>
+<strong><font size="2.5">Change in Maternal Employment</strong> 
+
+<table class="styled-table"  style="text-align:center">
+    <caption style="text-align:left">
+Percent of females age 20-64 with children under age 5</caption>
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow</td>
+    <td>Broad</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Employed</td>
+
+    <td><span id='emp_ba'></span></td>
+    <td><span id='emp_n'></span></td>
+    <td><span id='emp_br'></span></td>
+  </tr>
+  <tr>
+    <td>Employed Full Time</td>
+
+    <td><span id='ftemp_ba'></span></td>
+    <td><span id='ftemp_n'></span></td>
+    <td><span id='ftemp_br'></span></td>
+  </tr>  
+</table>
+
+<table class="styled-table"  style="text-align:center">
+    <caption style="text-align:left">
+Number of females age 20-64 with children under age 5</caption>
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow Increase</td>
+    <td>Broad Increase</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Employed</td>
+
+    <td><span id='emp_n_ba'></span></td>
+    <td><span id='emp_n_diff'></span></td>
+    <td><span id='emp_n_di_1'></span></td>
+  </tr>
+  <tr>
+    <td>Employed Full Time</td>
+
+    <td><span id='ftemp_n_ba'></span></td>
+    <td><span id='ftemp_n_di'></span></td>
+    <td><span id='ftemp_n__1'></span></td>
+  </tr>  
+</table>
+ 
+
+
+<strong><font size="2.5">Change in Mean ECE Household Expenditure</strong> 
+
+<table class="styled-table"  style="text-align:center"> 
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow Savings</td>
+    <td>Broad Savings</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Paying 50 weeks of ECE annually</td>
+
+    <td><span id='exp_ba'></span></td>
+    <td><span id='exp_diff_n'></span></td>
+    <td><span id='exp_diff_b'></span></td>
+  </tr>
+   
+</table>
+
+
+
+
+<strong><font size="2.5">Change in Children Attending Licensed ECE Providers</strong> 
+
+<table class="styled-table"  style="text-align:center">
+    <caption style="text-align:left">
+Percent of families with children under age 5 using licensed ECE providers</caption>
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow</td>
+    <td>Broad</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Center-based</td>
+
+    <td><span id='ccc_use_ba'></span></td>
+    <td><span id='ccc_use_n'></span></td>
+    <td><span id='ccc_use_br'></span></td>
+  </tr>
+  <tr>
+    <td>Home-based</td>
+
+
+    <td><span id='fcc_use_ba'></span></td>
+    <td><span id='fcc_use_n'></span></td>
+    <td><span id='fcc_use_br'></span></td>
+  </tr>  
+</table>
+
+<table class="styled-table"  style="text-align:center">
+    <caption style="text-align:left">
+Number of families with children under age 5 using licensed ECE providers</caption>
+
+      <thead>
+
+  <tr>
+      <td></td>
+    <td>Baseline</td>
+    <td>Narrow Increase</td>
+    <td>Broad Increase</td>
+  </tr>
+      </thead>
+
+  <tr class="active-row">
+    <td>Center-based</td>
+
+    <td><span id='n_ccc_use_'></span></td>
+    <td><span id='n_ccc_diff'></span></td>
+    <td><span id='n_ccc_di_1'></span></td>
+  </tr>
+  <tr>
+    <td>Home-based</td>
+
+
+    <td><span id='n_fcc_use_'></span></td>
+    <td><span id='n_fcc_diff'></span></td>
+    <td><span id='n_fcc_di_1'></span></td>
+  </tr>  
+</table>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+  <div><strong><font size="1.5">Source: Baseline data: 2021 ACS 5 year estimates; Policy parameters: Borowsky et al (2022); ECE use data: ChildCareAccess.org.</font></strong>  </div>
+
+</div> 
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1Ijoid29ubGVlIiwiYSI6ImNqYjY0bHZlczBvMnAzMm16OTlyYWFzYnYifQ.yaLx92dXVMk1NKp5Fp7HUg';
+  // Set bounds to San Francisco, California.
+const bounds = [
+[  -104.68382853903802,38.59253429376127  ], // Southwest coordinates
+[-84.62130488513192,50.72237066805901 ] // Northeast coordinates
+]; 
+const map = new mapboxgl.Map({
+container: 'map',
+// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+style: 'mapbox://styles/mapbox/light-v11',
+zoom: 5.7,
+minZoom: 5.5,
+maxBounds: bounds, // Set the map's geographical boundaries.
+
+center: [ -99.943262995056, 46.586671344255144,  ]
+
+});   
+ 
+// Wait until the map has finished loading.
+map.on('load', () => {
+
+
+
+// Add a custom vector tileset source. This tileset contains
+// point features representing senate_20230216-13pu3z. Each feature contains
+// three properties. For example:
+// {
+//     alt_name: "Museo Arqueologico",
+//     name: "Museo Inka",
+//     tourism: "museum"
+// }
+map.addSource('senate_20230216-13pu3z', {
+type: 'vector',
+url: 'mapbox://wonlee.6jfow72j'
+});
+ 
+ 
+map.addLayer({
+'id': 'senate_20230216-13pu3z',
+'type': 'fill',
+'source': 'senate_20230216-13pu3z',
+'layout': {
+// Make the layer visible by default.
+'visibility': 'visible'
+},
+'paint': {
+'fill-outline-color': '#000000',
+
+
+'fill-color':[
+
+
+'interpolate',
+['linear'],
+['get', 'base'],
+0, '#daa520 ', 
+],
+"fill-opacity": 0.6,
+
+},
+'source-layer': 'senate_20230216-13pu3z',
+});
+ 
+
+ 
+
+
+
+
+
+
+// Add the Mapbox Terrain v2 vector tileset. Read more about
+// the structure of data in this tileset in the documentation:
+// https://docs.mapbox.com/vector-tiles/reference/mapbox-terrain-v2/
+
+ 
+
+
+ 
+
+map.addSource('senate_20230216-6ki5cy', {
+type: 'vector',
+url: 'mapbox://wonlee.3jnwz8hj'
+});
+ 
+map.addLayer({
+'id': 'senate_20230216-6ki5cy',
+'type': 'symbol',
+'source': 'senate_20230216-6ki5cy',
+'layout': {
+
+'text-field': [
+'format',
+['upcase', ['get', 'DISTRICT']],
+{ 'font-scale': 1 },
+
+],
+'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold']
+},
+'source-layer': 'senate_20230216-6ki5cy',
+});
+
+
+
+map.addLayer({
+'id': 'senate_20230216-6ki5cy',
+'type': 'fill',
+'source': 'senate_20230216-6ki5cy',
+'layout': {
+// Make the layer visible by default.
+'visibility': 'visible'
+},
+'paint': {
+'fill-color':[
+'interpolate',
+['linear'],
+['get', 'base'],
+0, '#334ABC',  
+],
+"fill-opacity": 0.25  
+},
+'source-layer': 'senate_20230216-6ki5cy',
+});
+
+
+
+
+
+
+
+
+
+
+
+ });
+
+ 
+// After the last frame rendered before the map enters an "idle" state.
+map.on('idle', () => {
+// If these two layers were not added to the map, abort
+if (!map.getLayer('senate_20230216-6ki5cy') || !map.getLayer('senate_20230216-13pu3z')) {
+return;
+}
+ 
+// Enumerate ids of the layers.
+const toggleableLayerIds = ['senate_20230216-6ki5cy', 'senate_20230216-13pu3z'];
+ 
+// Set up the corresponding toggle button for each layer.
+for (const id of toggleableLayerIds) {
+// Skip layers that already have a button set up.
+if (document.getElementById(id)) {
+continue;
+}
+ 
+// Create a link.
+const link = document.createElement('a');
+link.id = id;
+link.href = '#';
+link.textContent = id;
+link.className = 'active';
+ 
+// Show or hide layer when the toggle is clicked.
+link.onclick = function (e) {
+const clickedLayer = this.textContent;
+e.preventDefault();
+e.stopPropagation();
+ 
+const visibility = map.getLayoutProperty(
+clickedLayer,
+'visibility'
+);
+ 
+// Toggle layer visibility by changing the layout object's visibility property.
+if (visibility === 'visible') {
+map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+this.className = '';
+} else {
+this.className = 'active';
+map.setLayoutProperty(
+clickedLayer,
+'visibility',
+'visible'
+);
+}
+};
+ 
+const layers = document.getElementById('menu');
+layers.appendChild(link);
+}
+
+
+
+  
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-13pu3z']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('DISTRICT').innerHTML = ZCTA5CE10[0].properties.DISTRICT ;
+    } else {
+        document.getElemnentById('DISTRICT').innerHTML ='DISTRICT';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-13pu3z']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_fam_u5').innerHTML = ZCTA5CE10[0].properties.n_fam_u5 ;
+    } else {
+        document.getElemnentById('n_fam_u5').innerHTML ='n_fam_u5';
+    }
+});
+
+
+
+
+
+
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-13pu3z']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('exp_ba').innerHTML = '$'+ZCTA5CE10[0].properties.exp_ba.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;
+    } else {
+        document.getElemnentById('exp_ba').innerHTML ='exp_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-13pu3z']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('exp_diff_n').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;
+    } else {
+        document.getElemnentById('exp_diff_n').innerHTML ='exp_diff_n';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-13pu3z']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('exp_diff_b').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_b.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;
+    } else {
+        document.getElemnentById('exp_diff_b').innerHTML ='exp_diff_b';
+    }
+});
+ 
+
+
+
+ 
+
+ 
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('DISTRICT').innerHTML = ZCTA5CE10[0].properties.DISTRICT ;
+    } else {
+        document.getElemnentById('DISTRICT').innerHTML ='DISTRICT';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_ba').innerHTML = ZCTA5CE10[0].properties.emp_ba.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('emp_ba').innerHTML ='emp_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_n').innerHTML = ZCTA5CE10[0].properties.emp_n.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('emp_n').innerHTML ='emp_n';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_br').innerHTML = ZCTA5CE10[0].properties.emp_br.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('emp_br').innerHTML ='emp_br';
+    }
+});
+ 
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_ba.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ftemp_ba').innerHTML ='ftemp_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_n').innerHTML = ZCTA5CE10[0].properties.ftemp_n.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ftemp_n').innerHTML ='ftemp_n';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_br').innerHTML = ZCTA5CE10[0].properties.ftemp_br.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ftemp_br').innerHTML ='ftemp_br';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_n_ba').innerHTML = ZCTA5CE10[0].properties.emp_n_ba.toFixed(0)  ;
+    } else {
+        document.getElemnentById('emp_n_ba').innerHTML ='emp_n_ba';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_n_diff').innerHTML = ZCTA5CE10[0].properties.emp_n_diff.toFixed(0)  ;
+    } else {
+        document.getElemnentById('emp_n_diff').innerHTML ='emp_n_diff';
+    }
+});
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('emp_n_di_1').innerHTML = ZCTA5CE10[0].properties.emp_n_di_1.toFixed(0)  ;
+    } else {
+        document.getElemnentById('emp_n_di_1').innerHTML ='emp_n_di_1';
+    }
+});
+
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ccc_use_ba').innerHTML = ZCTA5CE10[0].properties.ccc_use_ba.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ccc_use_ba').innerHTML ='ccc_use_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ccc_use_n').innerHTML = ZCTA5CE10[0].properties.ccc_use_n.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ccc_use_n').innerHTML ='ccc_use_n';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ccc_use_br').innerHTML = ZCTA5CE10[0].properties.ccc_use_br.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('ccc_use_br').innerHTML ='ccc_use_br';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('fcc_use_ba').innerHTML = ZCTA5CE10[0].properties.fcc_use_ba.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('fcc_use_ba').innerHTML ='fcc_use_ba';
+    }
+});
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('fcc_use_n').innerHTML = ZCTA5CE10[0].properties.fcc_use_n.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('fcc_use_n').innerHTML ='fcc_use_n';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('fcc_use_br').innerHTML = ZCTA5CE10[0].properties.fcc_use_br.toFixed(1)+'%' ;
+    } else {
+        document.getElemnentById('fcc_use_br').innerHTML ='fcc_use_br';
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_n_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_n_ba.toFixed(0)  ;
+    } else {
+        document.getElemnentById('ftemp_n_ba').innerHTML ='ftemp_n_ba';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_n_di').innerHTML = ZCTA5CE10[0].properties.ftemp_n_di.toFixed(0)  ;
+    } else {
+        document.getElemnentById('ftemp_n_di').innerHTML ='ftemp_n_di';
+    }
+});
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('ftemp_n__1').innerHTML = ZCTA5CE10[0].properties.ftemp_n__1.toFixed(0)  ;
+    } else {
+        document.getElemnentById('ftemp_n__1').innerHTML ='ftemp_n__1';
+    }
+});
+
+
+ 
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_ccc_use_').innerHTML = ZCTA5CE10[0].properties.n_ccc_use_.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_ccc_use_').innerHTML ='n_ccc_use_';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_ccc_diff').innerHTML = ZCTA5CE10[0].properties.n_ccc_diff.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_ccc_diff').innerHTML ='n_ccc_diff';
+    }
+});
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_ccc_di_1').innerHTML = ZCTA5CE10[0].properties.n_ccc_di_1.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_ccc_di_1').innerHTML ='n_ccc_di_1';
+    }
+});
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_fcc_use_').innerHTML = ZCTA5CE10[0].properties.n_fcc_use_.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_fcc_use_').innerHTML ='n_fcc_use_';
+    }
+});
+
+
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_fcc_diff').innerHTML = ZCTA5CE10[0].properties.n_fcc_diff.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_fcc_diff').innerHTML ='n_fcc_diff';
+    }
+});
+
+map.on('mousemove',function(e){
+    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
+        layers: ['senate_20230216-6ki5cy']
+    });
+    if (ZCTA5CE10.length >0) {
+        document.getElementById('n_fcc_di_1').innerHTML = ZCTA5CE10[0].properties.n_fcc_di_1.toFixed(0)  ;
+    } else {
+        document.getElemnentById('n_fcc_di_1').innerHTML ='n_fcc_di_1';
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+});
+</script>
+ 
+</body>
+</html>

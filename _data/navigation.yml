@@ -2,9 +2,9 @@
 
 - text: Home
   url: /
-- text: House Map
-  url: _layouts/house_map.html
-- text: Senate Map
-  url: _layouts/senate_map.html
+- text: House District
+  url: /_layouts/house_map.html
+- text: Senate District
+  url: /_layouts/senate_map.html
 
  

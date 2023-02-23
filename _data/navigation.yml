@@ -2,9 +2,9 @@
 
 - text: Home
   url: /
-- text: Map
-  url: /assets/map_draft.html
-- text: Contact
-  url: /contact
+- text: House Map
+  url: _layouts/house_map.html
+- text: Senate Map
+  url: _layouts/senate_map.html
 
  

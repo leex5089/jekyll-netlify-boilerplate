@@ -3,8 +3,8 @@
 - text: Home
   url: /
 - text: House District
-  url: /_layouts/house_map.html
+  url: /assets/house_map.html
 - text: Senate District
-  url: /_layouts/senate_map.html
+  url: /assets/senate_map.html
 
  

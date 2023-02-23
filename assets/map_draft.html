@@ -25,12 +25,12 @@ body { margin: 0; padding: 0; }
 .styled-table {
 
   width: 90%;
-  height: 2%;  
+  height: 6%;  
      border-collapse: collapse;
-    margin: 5px 0;
-    font-size: 1em;
+    margin: 1% 0;
+    font-size: 9px;
     font-family: sans-serif;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 5% rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
     background-color: #5b87c2;
@@ -43,10 +43,10 @@ body { margin: 0; padding: 0; }
 }
 .styled-table th,
 .styled-table td {
-    padding: 12px 15px;
+    padding: 1% 1%;
 }
 .styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 42% solid #dddddd;
 }
 
 .styled-table tbody tr:nth-of-type(even) {
@@ -54,21 +54,21 @@ body { margin: 0; padding: 0; }
 }
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #5b87c2;
+    border-bottom: 2% solid #5b87c2;
 }
 .quakeInfo {
   position: relative;
   font-family: sans-serif;
-  margin-top: 5px;
-  margin-left: 5px;
-  padding: 5px;
+  margin-top: 2%;
+  margin-left: 2%;
+  padding: 1%;
   width: 32%;
   height: 95%;
   border: 2px solid black;
-  font-size: 18px;
+  font-size: 15%;
   color: #000000;
   background-color: rgba(240, 255, 255, 0.8);
-  border-radius: 1px;
+  border-radius: 2%;
 }
 
 </style>
@@ -555,7 +555,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('DISTRICT').innerHTML = ZCTA5CE10[0].properties.DISTRICT ;
@@ -567,7 +567,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_ba').innerHTML = ZCTA5CE10[0].properties.emp_ba.toFixed(1)+'%' ;
@@ -581,7 +581,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_n').innerHTML = ZCTA5CE10[0].properties.emp_n.toFixed(1)+'%' ;
@@ -593,7 +593,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_br').innerHTML = ZCTA5CE10[0].properties.emp_br.toFixed(1)+'%' ;
@@ -605,7 +605,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_ba.toFixed(1)+'%' ;
@@ -619,7 +619,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_n').innerHTML = ZCTA5CE10[0].properties.ftemp_n.toFixed(1)+'%' ;
@@ -631,7 +631,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_br').innerHTML = ZCTA5CE10[0].properties.ftemp_br.toFixed(1)+'%' ;
@@ -645,7 +645,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_n_ba').innerHTML = ZCTA5CE10[0].properties.emp_n_ba.toFixed(0)  ;
@@ -658,7 +658,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_n_diff').innerHTML = ZCTA5CE10[0].properties.emp_n_diff.toFixed(0)  ;
@@ -669,7 +669,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_n_di_1').innerHTML = ZCTA5CE10[0].properties.emp_n_di_1.toFixed(0)  ;
@@ -684,7 +684,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ccc_use_ba').innerHTML = ZCTA5CE10[0].properties.ccc_use_ba.toFixed(1)+'%' ;
@@ -698,7 +698,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ccc_use_n').innerHTML = ZCTA5CE10[0].properties.ccc_use_n.toFixed(1)+'%' ;
@@ -710,7 +710,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ccc_use_br').innerHTML = ZCTA5CE10[0].properties.ccc_use_br.toFixed(1)+'%' ;
@@ -724,7 +724,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('fcc_use_ba').innerHTML = ZCTA5CE10[0].properties.fcc_use_ba.toFixed(1)+'%' ;
@@ -738,7 +738,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('fcc_use_n').innerHTML = ZCTA5CE10[0].properties.fcc_use_n.toFixed(1)+'%' ;
@@ -750,7 +750,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('fcc_use_br').innerHTML = ZCTA5CE10[0].properties.fcc_use_br.toFixed(1)+'%' ;
@@ -777,7 +777,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_n_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_n_ba.toFixed(0)  ;
@@ -790,7 +790,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_n_di').innerHTML = ZCTA5CE10[0].properties.ftemp_n_di.toFixed(0)  ;
@@ -801,7 +801,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_n__1').innerHTML = ZCTA5CE10[0].properties.ftemp_n__1.toFixed(0)  ;
@@ -816,7 +816,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_ccc_use_').innerHTML = ZCTA5CE10[0].properties.n_ccc_use_.toFixed(0)  ;
@@ -829,7 +829,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_ccc_diff').innerHTML = ZCTA5CE10[0].properties.n_ccc_diff.toFixed(0)  ;
@@ -840,7 +840,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_ccc_di_1').innerHTML = ZCTA5CE10[0].properties.n_ccc_di_1.toFixed(0)  ;
@@ -852,7 +852,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_fcc_use_').innerHTML = ZCTA5CE10[0].properties.n_fcc_use_.toFixed(0)  ;
@@ -865,7 +865,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_fcc_diff').innerHTML = ZCTA5CE10[0].properties.n_fcc_diff.toFixed(0)  ;
@@ -876,7 +876,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house_20230216-71unnj']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_fcc_di_1').innerHTML = ZCTA5CE10[0].properties.n_fcc_di_1.toFixed(0)  ;

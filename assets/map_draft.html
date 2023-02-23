@@ -304,23 +304,23 @@ map.on('load', () => {
 
 
 // Add a custom vector tileset source. This tileset contains
-// point features representing house_20230216-camiji. Each feature contains
+// point features representing house2022_20230223-7sqeld. Each feature contains
 // three properties. For example:
 // {
 //     alt_name: "Museo Arqueologico",
 //     name: "Museo Inka",
 //     tourism: "museum"
 // }
-map.addSource('house_20230216-camiji', {
+map.addSource('house2022_20230223-7sqeld', {
 type: 'vector',
-url: 'mapbox://wonlee.3wzmj61h'
+url: 'mapbox://wonlee.5uqrn1bb'
 });
  
  
 map.addLayer({
-'id': 'house_20230216-camiji',
+'id': 'house2022_20230223-7sqeld',
 'type': 'fill',
-'source': 'house_20230216-camiji',
+'source': 'house2022_20230223-7sqeld',
 'layout': {
 // Make the layer visible by default.
 'visibility': 'visible'
@@ -340,7 +340,7 @@ map.addLayer({
 "fill-opacity": 0.6,
 
 },
-'source-layer': 'house_20230216-camiji',
+'source-layer': 'house2022_20230223-7sqeld',
 });
  
 
@@ -420,12 +420,12 @@ map.addLayer({
 // After the last frame rendered before the map enters an "idle" state.
 map.on('idle', () => {
 // If these two layers were not added to the map, abort
-if (!map.getLayer('house_20230216-71unnj') || !map.getLayer('house_20230216-camiji')) {
+if (!map.getLayer('house_20230216-71unnj') || !map.getLayer('house2022_20230223-7sqeld')) {
 return;
 }
  
 // Enumerate ids of the layers.
-const toggleableLayerIds = ['house_20230216-71unnj', 'house_20230216-camiji'];
+const toggleableLayerIds = ['house_20230216-71unnj', 'house2022_20230223-7sqeld'];
  
 // Set up the corresponding toggle button for each layer.
 for (const id of toggleableLayerIds) {
@@ -478,7 +478,7 @@ layers.appendChild(link);
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('DISTRICT').innerHTML = ZCTA5CE10[0].properties.DISTRICT ;
@@ -491,7 +491,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_fam_u5').innerHTML = ZCTA5CE10[0].properties.n_fam_u5 ;
@@ -511,7 +511,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('exp_ba').innerHTML = '$'+ZCTA5CE10[0].properties.exp_ba.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;
@@ -525,7 +525,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('exp_diff_n').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;
@@ -537,7 +537,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house_20230216-camiji']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('exp_diff_b').innerHTML = '$'+ZCTA5CE10[0].properties.exp_diff_b.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",") ;

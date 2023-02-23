@@ -372,9 +372,9 @@ map.addLayer({
 
 
 map.addLayer({
-'id': 'house2022_20230223-20h48c',
+'id': 'house2022_20230223-7sqeld',
 'type': 'fill',
-'source': 'house2022_20230223-20h48c',
+'source': 'house2022_20230223-7sqeld',
 'layout': {
 // Make the layer visible by default.
 'visibility': 'visible'
@@ -388,7 +388,7 @@ map.addLayer({
 ],
 "fill-opacity": 0.25  
 },
-'source-layer': 'house2022_20230223-20h48c',
+'source-layer': 'house2022_20230223-7sqeld',
 });
 
 
@@ -540,9 +540,11 @@ map.on('mousemove',function(e){
 
  
 
+ 
+
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('DISTRICT').innerHTML = ZCTA5CE10[0].properties.DISTRICT ;
@@ -554,7 +556,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_ba').innerHTML = ZCTA5CE10[0].properties.emp_ba.toFixed(1)+'%' ;
@@ -568,7 +570,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_n').innerHTML = ZCTA5CE10[0].properties.emp_n.toFixed(1)+'%' ;
@@ -580,7 +582,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_br').innerHTML = ZCTA5CE10[0].properties.emp_br.toFixed(1)+'%' ;
@@ -592,7 +594,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_ba.toFixed(1)+'%' ;
@@ -606,7 +608,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_n').innerHTML = ZCTA5CE10[0].properties.ftemp_n.toFixed(1)+'%' ;
@@ -618,7 +620,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_br').innerHTML = ZCTA5CE10[0].properties.ftemp_br.toFixed(1)+'%' ;
@@ -632,7 +634,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_n_ba').innerHTML = ZCTA5CE10[0].properties.emp_n_ba.toFixed(0)  ;
@@ -645,7 +647,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_n_diff').innerHTML = ZCTA5CE10[0].properties.emp_n_diff.toFixed(0)  ;
@@ -656,7 +658,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('emp_n_di_1').innerHTML = ZCTA5CE10[0].properties.emp_n_di_1.toFixed(0)  ;
@@ -671,7 +673,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ccc_use_ba').innerHTML = ZCTA5CE10[0].properties.ccc_use_ba.toFixed(1)+'%' ;
@@ -685,7 +687,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ccc_use_n').innerHTML = ZCTA5CE10[0].properties.ccc_use_n.toFixed(1)+'%' ;
@@ -697,7 +699,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ccc_use_br').innerHTML = ZCTA5CE10[0].properties.ccc_use_br.toFixed(1)+'%' ;
@@ -711,7 +713,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('fcc_use_ba').innerHTML = ZCTA5CE10[0].properties.fcc_use_ba.toFixed(1)+'%' ;
@@ -725,7 +727,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('fcc_use_n').innerHTML = ZCTA5CE10[0].properties.fcc_use_n.toFixed(1)+'%' ;
@@ -737,7 +739,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('fcc_use_br').innerHTML = ZCTA5CE10[0].properties.fcc_use_br.toFixed(1)+'%' ;
@@ -764,7 +766,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_n_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_n_ba.toFixed(0)  ;
@@ -777,7 +779,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_n_di').innerHTML = ZCTA5CE10[0].properties.ftemp_n_di.toFixed(0)  ;
@@ -788,7 +790,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('ftemp_n__1').innerHTML = ZCTA5CE10[0].properties.ftemp_n__1.toFixed(0)  ;
@@ -803,7 +805,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_ccc_use_').innerHTML = ZCTA5CE10[0].properties.n_ccc_use_.toFixed(0)  ;
@@ -816,7 +818,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_ccc_diff').innerHTML = ZCTA5CE10[0].properties.n_ccc_diff.toFixed(0)  ;
@@ -827,7 +829,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_ccc_di_1').innerHTML = ZCTA5CE10[0].properties.n_ccc_di_1.toFixed(0)  ;
@@ -839,7 +841,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_fcc_use_').innerHTML = ZCTA5CE10[0].properties.n_fcc_use_.toFixed(0)  ;
@@ -852,7 +854,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_fcc_diff').innerHTML = ZCTA5CE10[0].properties.n_fcc_diff.toFixed(0)  ;
@@ -863,7 +865,7 @@ map.on('mousemove',function(e){
 
 map.on('mousemove',function(e){
     var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['house2022_20230223-20h48c']
+        layers: ['house2022_20230223-7sqeld']
     });
     if (ZCTA5CE10.length >0) {
         document.getElementById('n_fcc_di_1').innerHTML = ZCTA5CE10[0].properties.n_fcc_di_1.toFixed(0)  ;
@@ -871,6 +873,8 @@ map.on('mousemove',function(e){
         document.getElemnentById('n_fcc_di_1').innerHTML ='n_fcc_di_1';
     }
 });
+
+
 
 
 

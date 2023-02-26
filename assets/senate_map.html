@@ -18,6 +18,30 @@ body { margin: 0; padding: 0; }
 </head>
 <body>
 <style>
+
+  a:link {
+  color: #237EDE;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #237EDE;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0422FC;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #237EDE;
+  background-color: transparent;
+  text-decoration: underline;
+}
 .center {
   margin-left: auto;
   margin-right: auto;
@@ -31,6 +55,8 @@ body { margin: 0; padding: 0; }
     font-size: 9px;
     font-family: sans-serif;
     box-shadow: 0 0 5% rgba(0, 0, 0, 0.15);
+            text-align: left;
+
 }
 .styled-table thead tr {
     background-color: #5b87c2;
@@ -40,24 +66,44 @@ body { margin: 0; padding: 0; }
 .styled-table tbody tr.active-row {
     font-weight: bold;
     color: #5b87c2;
+    min-width: 2px;
+    max-width: 2px;
+    width:  2px;
+        text-align: left;
+
 }
+
+ 
+
+
+
+
+ 
+
 .styled-table th,
 .styled-table td {
       overflow: hidden; 
     text-overflow: ellipsis; 
     word-wrap: break-word;
-    padding: 0.5% 0.5%;
+    padding: 0.3% 0.3%;
+    width: 25% 
 }
 .styled-table tbody tr {
     border-bottom: 0.1% solid #dddddd;
+            text-align: left;
+
 }
 
 .styled-table tbody tr:nth-of-type(even) {
     background-color: #d3deed;
+            text-align: left;
+
 }
 
 .styled-table tbody tr:last-of-type {
     border-bottom:  0.1% solid #5b87c2;
+            text-align: left;
+
 }
 .quakeInfo {
   position: relative;
@@ -65,7 +111,7 @@ body { margin: 0; padding: 0; }
   margin-top: 0.1%;
   margin-left: 0.1%;
   padding: 0.3%;
-  width: 45%;
+  width: 48%;
   height: 95%;
   border: 2px solid black;
   font-size: 15%;
@@ -81,22 +127,39 @@ body { margin: 0; padding: 0; }
  
  
  <div class='quakeInfo'>
- <div><strong><font size="1.9">Estimates of Narrow and Broad Early Care and Education Policy Effects
+ <div><strong><font size="1.6">How Early Care and Education (ECE) Approaches Empower Families with Young Children
 
   <p></p>
 
 </font></strong>  </div>
+ <div><strong><font size="1.3">Instructions:  </strong>
+                        
+ 
+<ul>
+  <li>Rollover, click, or touch a district to view data.</li>
+  <li>Zoom in/out or position map with cursor or finger to access a district.</li> 
+</ul>  
+</font>  </div>
 
 
 
-<div><strong><font size="1.6">Senate District:</strong> <span style="color:blue; font-size:150%; background-color:#dba9a9;" id='DISTRICT'></span></div>
+<div><strong><font size="1.3">Senate District:</strong> <span style="color:blue; font-size:150%; background-color:#dba9a9;" id='DISTRICT'></span></div>
 
-<div><strong><font size="1.6">Number of families with children under 5:</strong> <span style="color:blue" id='n_fam_u5'></span></div>
-
+<div><strong><font size="1.3">Number of families with children under 5:</strong> <span style="color:blue" id='n_fam_u5'></span></div>
 
 <p></p>
-<strong><font size="1.5">Change in Maternal Employment</strong> 
 
+ <div><strong><font size="1.6">Policy Approaches:</strong> 
+
+  <p></p>
+
+<ul>
+  <li>Targeted: Fully fund Child Care Assistance Program, targeted to low-income families.</li>
+  <li>Plus Middle Class: Targeted policy plus ECE payments for middle-income capped at 7% of family income.</li> 
+</ul>   
+<p></p>
+<strong><font size="1.3">More moms working and moving from part-time to full-time employment</strong> 
+ </div>
 <table class="styled-table"  style="text-align:center">
     <caption style="text-align:left">
 Percent of females age 20-64 with children under age 5</caption>
@@ -105,9 +168,9 @@ Percent of females age 20-64 with children under age 5</caption>
 
   <tr>
       <td></td>
-    <td>Baseline</td>
-    <td>Narrow</td>
-    <td>Broad</td>
+    <td>Current</td>
+    <td>Targeted</td>
+    <td>Plus Middle Class</td>
   </tr>
       </thead>
 
@@ -118,7 +181,7 @@ Percent of females age 20-64 with children under age 5</caption>
     <td><span id='emp_n'></span></td>
     <td><span id='emp_br'></span></td>
   </tr>
-  <tr>
+  <tr >
     <td>Employed Full Time</td>
 
     <td><span id='ftemp_ba'></span></td>
@@ -126,50 +189,24 @@ Percent of females age 20-64 with children under age 5</caption>
     <td><span id='ftemp_br'></span></td>
   </tr>  
 </table>
-
-<table class="styled-table"  style="text-align:center">
-    <caption style="text-align:left">
-Number of females age 20-64 with children under age 5</caption>
-
-      <thead>
-
-  <tr>
-      <td></td>
-    <td>Baseline</td>
-    <td>Narrow Increase</td>
-    <td>Broad Increase</td>
-  </tr>
-      </thead>
-
-  <tr class="active-row">
-    <td>Employed</td>
-
-    <td><span id='emp_n_ba'></span></td>
-    <td><span id='emp_n_diff'></span></td>
-    <td><span id='emp_n_di_1'></span></td>
-  </tr>
-  <tr>
-    <td>Employed Full Time</td>
-
-    <td><span id='ftemp_n_ba'></span></td>
-    <td><span id='ftemp_n_di'></span></td>
-    <td><span id='ftemp_n__1'></span></td>
-  </tr>  
-</table>
  
+<p></p>
 
-
-<strong><font size="1.5">Change in Mean ECE Household Expenditure</strong> 
-
+<strong><font size="1.3">Families have lower ECE costs</strong> 
+ 
 <table class="styled-table"  style="text-align:center"> 
+    <caption style="text-align:left">
+Change in Annual Mean ECE Household Expenditure</caption>
+
+      <thead>
 
       <thead>
 
   <tr>
       <td></td>
-    <td>Baseline</td>
-    <td>Narrow Savings</td>
-    <td>Broad Savings</td>
+    <td>Current</td>
+    <td>Targeted</td>
+    <td>Plus Middle Class</td>
   </tr>
       </thead>
 
@@ -185,8 +222,8 @@ Number of females age 20-64 with children under age 5</caption>
 
 
 
-
-<strong><font size="1.5">Change in Children Attending Licensed ECE Providers</strong> 
+<p></p>
+<strong><font size="1.3">More children attending licensed ECE providers</strong> 
 
 <table class="styled-table"  style="text-align:center">
     <caption style="text-align:left">
@@ -196,9 +233,9 @@ Percent of families with children under age 5 using licensed ECE providers</capt
 
   <tr>
       <td></td>
-    <td>Baseline</td>
-    <td>Narrow</td>
-    <td>Broad</td>
+    <td>Current</td>
+    <td>Targeted</td>
+    <td>Per Middle Class</td>
   </tr>
       </thead>
 
@@ -218,54 +255,21 @@ Percent of families with children under age 5 using licensed ECE providers</capt
     <td><span id='fcc_use_br'></span></td>
   </tr>  
 </table>
-
-<table class="styled-table"  style="text-align:center">
-    <caption style="text-align:left">
-Number of families with children under age 5 using licensed ECE providers</caption>
-
-      <thead>
-
-  <tr>
-      <td></td>
-    <td>Baseline</td>
-    <td>Narrow Increase</td>
-    <td>Broad Increase</td>
-  </tr>
-      </thead>
-
-  <tr class="active-row">
-    <td>Center-based</td>
-
-    <td><span id='n_ccc_use_'></span></td>
-    <td><span id='n_ccc_diff'></span></td>
-    <td><span id='n_ccc_di_1'></span></td>
-  </tr>
-  <tr>
-    <td>Home-based</td>
-
-
-    <td><span id='n_fcc_use_'></span></td>
-    <td><span id='n_fcc_diff'></span></td>
-    <td><span id='n_fcc_di_1'></span></td>
-  </tr>  
-</table>
  
 
 
-
  
-
-
-
-
-
-
+ <div style="padding: 8px; border: 1px solid #C36161;  width: 85%;><strong><font size="1.3">Note:  
+                        
  
-
+<ul>
+  <li>For data sources and methodology see <a href="https://docs.google.com/document/d/1JqbhYzF_1sY2SpJE_wQq3WY86I558w6dsOL6-DnKcXM/edit" target="_blank">Impact of Increased Early Care and Education Investments by Minnesota Legislative Districts</a>.</li>
+  <li>These estimates provide context and direction for the types of expected effects from investing in these ECE policies, but the estimates are not intended for policymakers, government agencies, businesses, or families to use for detailed planning.</li> 
+</ul> 
+</font></strong>   </div>
  
-  <div><font size="0.4">Source: Baseline data: 2021 ACS 5 year estimates; Policy parameters: Borowsky et al (2022); ECE use data: ChildCareAccess.org.</font> </div>
-
-</div> 
+ </div>
+ 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1Ijoid29ubGVlIiwiYSI6ImNqYjY0bHZlczBvMnAzMm16OTlyYWFzYnYifQ.yaLx92dXVMk1NKp5Fp7HUg';
   // Set bounds to San Francisco, California.
@@ -631,43 +635,7 @@ map.on('mousemove',function(e){
 
 
 
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('emp_n_ba').innerHTML = ZCTA5CE10[0].properties.emp_n_ba.toFixed(0)  ;
-    } else {
-        document.getElemnentById('emp_n_ba').innerHTML ='emp_n_ba';
-    }
-});
-
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('emp_n_diff').innerHTML = ZCTA5CE10[0].properties.emp_n_diff.toFixed(0)  ;
-    } else {
-        document.getElemnentById('emp_n_diff').innerHTML ='emp_n_diff';
-    }
-});
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('emp_n_di_1').innerHTML = ZCTA5CE10[0].properties.emp_n_di_1.toFixed(0)  ;
-    } else {
-        document.getElemnentById('emp_n_di_1').innerHTML ='emp_n_di_1';
-    }
-});
-
-
+ 
 
 
 
@@ -762,126 +730,8 @@ map.on('mousemove',function(e){
 
 
 
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('ftemp_n_ba').innerHTML = ZCTA5CE10[0].properties.ftemp_n_ba.toFixed(0)  ;
-    } else {
-        document.getElemnentById('ftemp_n_ba').innerHTML ='ftemp_n_ba';
-    }
-});
-
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('ftemp_n_di').innerHTML = ZCTA5CE10[0].properties.ftemp_n_di.toFixed(0)  ;
-    } else {
-        document.getElemnentById('ftemp_n_di').innerHTML ='ftemp_n_di';
-    }
-});
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('ftemp_n__1').innerHTML = ZCTA5CE10[0].properties.ftemp_n__1.toFixed(0)  ;
-    } else {
-        document.getElemnentById('ftemp_n__1').innerHTML ='ftemp_n__1';
-    }
-});
-
-
  
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('n_ccc_use_').innerHTML = ZCTA5CE10[0].properties.n_ccc_use_.toFixed(0)  ;
-    } else {
-        document.getElemnentById('n_ccc_use_').innerHTML ='n_ccc_use_';
-    }
-});
-
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('n_ccc_diff').innerHTML = ZCTA5CE10[0].properties.n_ccc_diff.toFixed(0)  ;
-    } else {
-        document.getElemnentById('n_ccc_diff').innerHTML ='n_ccc_diff';
-    }
-});
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('n_ccc_di_1').innerHTML = ZCTA5CE10[0].properties.n_ccc_di_1.toFixed(0)  ;
-    } else {
-        document.getElemnentById('n_ccc_di_1').innerHTML ='n_ccc_di_1';
-    }
-});
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('n_fcc_use_').innerHTML = ZCTA5CE10[0].properties.n_fcc_use_.toFixed(0)  ;
-    } else {
-        document.getElemnentById('n_fcc_use_').innerHTML ='n_fcc_use_';
-    }
-});
-
-
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('n_fcc_diff').innerHTML = ZCTA5CE10[0].properties.n_fcc_diff.toFixed(0)  ;
-    } else {
-        document.getElemnentById('n_fcc_diff').innerHTML ='n_fcc_diff';
-    }
-});
-
-map.on('mousemove',function(e){
-    var ZCTA5CE10=map.queryRenderedFeatures(e.point, {
-        layers: ['senate2022_20230223-2j0yrl']
-    });
-    if (ZCTA5CE10.length >0) {
-        document.getElementById('n_fcc_di_1').innerHTML = ZCTA5CE10[0].properties.n_fcc_di_1.toFixed(0)  ;
-    } else {
-        document.getElemnentById('n_fcc_di_1').innerHTML ='n_fcc_di_1';
-    }
-});
-
-
-
-
-
-
-
-
-
+ 
 
 
 

@@ -160,7 +160,7 @@ a:active {
 
 <ul>
   <li>Targeted: Fully fund Child Care Assistance Program, targeted to low-income families.</li>
-  <li>Plus Middle Class: Targeted policy plus ECE payments for middle-income capped at 7% of family income.</li> 
+  <li>Plus Middle Income: Targeted policy plus middle-income family ECE payments capped at 7% of income.</li> 
 </ul>   
 <p></p>
 <strong><font size="1.3">More moms working and moving from part-time to full-time employment</strong> 
@@ -173,25 +173,25 @@ Percent of females age 20-64 with children under age 5</caption>
 
   <tr>
       <td></td>
-    <td>Current</td>
-    <td>Targeted</td>
-    <td>Plus Middle Class</td>
+    <td style="text-align:center">Current</td>
+    <td style="text-align:center">Targeted</td>
+    <td style="text-align:center">Plus Middle Income</td>
   </tr>
       </thead>
 
   <tr class="active-row">
     <td>Employed</td>
 
-    <td><span id='emp_ba'></span></td>
-    <td><span id='emp_n'></span></td>
-    <td><span id='emp_br'></span></td>
+    <td style="text-align:center"><span id='emp_ba'></span></td>
+    <td style="text-align:center"><span id='emp_n'></span></td>
+    <td style="text-align:center"><span id='emp_br'></span></td>
   </tr>
   <tr >
-    <td>Employed Full Time</td>
+    <td>Employed full time</td>
 
-    <td><span id='ftemp_ba'></span></td>
-    <td><span id='ftemp_n'></span></td>
-    <td><span id='ftemp_br'></span></td>
+    <td style="text-align:center"><span id='ftemp_ba'></span></td>
+    <td style="text-align:center"><span id='ftemp_n'></span></td>
+    <td style="text-align:center"><span id='ftemp_br'></span></td>
   </tr>  
 </table>
  
@@ -201,26 +201,30 @@ Percent of females age 20-64 with children under age 5</caption>
  
 <table class="styled-table"  style="text-align:center"> 
     <caption style="text-align:left">
-Change in Annual Mean ECE Household Expenditure</caption>
-
+Average annual ECE household expenditures</caption>
+  <tr class="active-row">
+      <td  ></td>
+    <td  ></td> 
+    <td colspan="2" style="text-align:center" bgcolor=#d3deed>Average annual savings</td>
+  </tr>
       <thead>
 
       <thead>
 
   <tr>
       <td></td>
-    <td>Current</td>
-    <td>Targeted</td>
-    <td>Plus Middle Class</td>
+    <td style="text-align:center">Current</td>
+    <td style="text-align:center">Targeted</td>
+    <td style="text-align:center">Plus Middle Income</td>
   </tr>
       </thead>
 
   <tr class="active-row">
     <td>Paying 50 weeks of ECE annually</td>
 
-    <td><span id='exp_ba'></span></td>
-    <td><span id='exp_diff_n'></span></td>
-    <td><span id='exp_diff_b'></span></td>
+    <td style="text-align:center"><span id='exp_ba'></span></td>
+    <td style="text-align:center"><span id='exp_diff_n'></span></td>
+    <td style="text-align:center"><span id='exp_diff_b'></span></td>
   </tr>
    
 </table>
@@ -238,38 +242,38 @@ Percent of families with children under age 5 using licensed ECE providers</capt
 
   <tr>
       <td></td>
-    <td>Current</td>
-    <td>Targeted</td>
-    <td>Per Middle Class</td>
+    <td style="text-align:center">Current</td>
+    <td style="text-align:center">Targeted</td>
+    <td style="text-align:center">Plus Middle Income</td>
   </tr>
       </thead>
 
   <tr class="active-row">
     <td>Center-based</td>
 
-    <td><span id='ccc_use_ba'></span></td>
-    <td><span id='ccc_use_n'></span></td>
-    <td><span id='ccc_use_br'></span></td>
+    <td style="text-align:center"><span id='ccc_use_ba'></span></td>
+    <td style="text-align:center"><span id='ccc_use_n'></span></td>
+    <td style="text-align:center"><span id='ccc_use_br'></span></td>
   </tr>
   <tr>
     <td>Home-based</td>
 
 
-    <td><span id='fcc_use_ba'></span></td>
-    <td><span id='fcc_use_n'></span></td>
-    <td><span id='fcc_use_br'></span></td>
+    <td style="text-align:center"><span id='fcc_use_ba'></span></td>
+    <td style="text-align:center"><span id='fcc_use_n'></span></td>
+    <td style="text-align:center"><span id='fcc_use_br'></span></td>
   </tr>  
 </table>
  
 
 
  
- <div style="padding: 8px; border: 1px solid #C36161;  width: 85%;><strong><font size="1.3">Note:  
+ <div style="padding: 8px; border: 1px solid #C36161;  width: 85%;><strong><font size="1.3">  
                         
  
 <ul>
   <li>For data sources and methodology see <a href="https://docs.google.com/document/d/1JqbhYzF_1sY2SpJE_wQq3WY86I558w6dsOL6-DnKcXM/edit" target="_blank">Impact of Increased Early Care and Education Investments by Minnesota Legislative Districts</a>.</li>
-  <li>These estimates provide context and direction for the types of expected effects from investing in these ECE policies, but the estimates are not intended for policymakers, government agencies, businesses, or families to use for detailed planning.</li> 
+  <li>These estimates provide context and direction for the types of expected effects from investing in these ECE policies, but the estimates are not intended to be used for detailed planning by policymakers, government agencies, businesses, or families.</li> 
 </ul> 
 </font></strong>   </div>
  
@@ -311,7 +315,11 @@ map.addSource('house2022_20230223-7sqeld', {
 type: 'vector',
 url: 'mapbox://wonlee.5uqrn1bb'
 });
- 
+map.addSource('house2022_20230223-am3881', {
+type: 'vector',
+url: 'mapbox://wonlee.7pjpf9h2'
+});
+  
  
 map.addLayer({
 'id': 'house2022_20230223-7sqeld',
@@ -333,8 +341,13 @@ map.addLayer({
 ['get', 'base'],
 0, '#daa520 ', 
 ],
-"fill-opacity": 0.6,
-
+ 
+'fill-opacity': [
+    'case',
+    ['boolean', ['feature-state', 'hover'], false],
+    1,
+    0.5
+]
 },
 'source-layer': 'house2022_20230223-7sqeld',
 });
@@ -402,6 +415,42 @@ map.addLayer({
 
 
 
+map.addLayer({
+'id': 'state-fills',
+'type': 'fill',
+'source': 'house2022_20230223-7sqeld',
+'layout': {},
+'paint': {
+'fill-color': '#627BC1',
+'fill-opacity': [
+'case',
+['boolean', ['feature-state', 'hover'], false],
+1,
+0.5
+]
+}
+});
+ 
+map.addLayer({
+'id': 'state-borders',
+'type': 'line',
+'source': 'house2022_20230223-7sqeld',
+'layout': {},
+'paint': {
+'line-color': '#627BC1',
+'line-width': 2
+}
+});
+ 
+
+
+
+
+
+
+
+
+
 
 
 
@@ -411,6 +460,7 @@ map.addLayer({
 
 
  });
+let hoveredStateId = null;
 
  
 // After the last frame rendered before the map enters an "idle" state.
@@ -421,7 +471,7 @@ return;
 }
  
 // Enumerate ids of the layers.
-const toggleableLayerIds = ['house2022_20230223-20h48c', 'house2022_20230223-7sqeld'];
+const toggleableLayerIds = ['house2022_20230223-20h48c', 'house2022_20230223-7sqeld', 'state-fills', 'state-borders'];
  
 // Set up the corresponding toggle button for each layer.
 for (const id of toggleableLayerIds) {
@@ -722,24 +772,35 @@ map.on('mousemove',function(e){
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
  
 
-
-
+map.on('mousemove', 'state-fills', (e) => {
+if (e.features.length > 0) {
+if (hoveredStateId !== null) {
+map.setFeatureState(
+{ source: 'house2022_20230223-20h48c', id: hoveredStateId },
+{ hover: false }
+);
+}
+hoveredStateId = e.features[0].DISTRICT;
+map.setFeatureState(
+{ source: 'states', id: hoveredStateId },
+{ hover: true }
+);
+}
+});
+ 
+// When the mouse leaves the state-fill layer, update the feature state of the
+// previously hovered feature.
+map.on('mouseleave', 'state-fills', () => {
+if (hoveredStateId !== null) {
+map.setFeatureState(
+{ source: 'house2022_20230223-20h48c', id: hoveredStateId },
+{ hover: false }
+);
+}
+hoveredStateId = null;
+});
 
 
 

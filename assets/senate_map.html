@@ -298,6 +298,7 @@ center: [ -97.943262995056, 46.586671344255144,  ]
 
 });   
  
+let hoveredStateId  = null;
 // Wait until the map has finished loading.
 map.on('load', () => {
 
@@ -313,11 +314,13 @@ map.on('load', () => {
 // }
 map.addSource('senate2022_20230223-2j0yrl', {
 type: 'vector',
-url: 'mapbox://wonlee.ar6wvvwj'
+url: 'mapbox://wonlee.ar6wvvwj',
+promoteId: 'DISTRICT'
+
 });
-map.addSource('house2022_20230223-am3881', {
+map.addSource('senate2022_20230223-4hzhui', {
 type: 'vector',
-url: 'mapbox://wonlee.7pjpf9h2'
+url: 'mapbox://wonlee.a2s634e7'
 });
   
  
@@ -346,13 +349,11 @@ map.addLayer({
     'case',
     ['boolean', ['feature-state', 'hover'], false],
     1,
-    0.5
+    0.3
 ]
 },
 'source-layer': 'senate2022_20230223-2j0yrl',
 });
- 
-
  
 
 
@@ -366,7 +367,8 @@ map.addLayer({
 
  
 
-
+ 
+ 
  
 
 map.addSource('senate2022_20230223-1ipxuq', {
@@ -414,34 +416,23 @@ map.addLayer({
 });
 
 
+ // Add a black outline around the polygon.
+ 
+ 
+
 
 map.addLayer({
-'id': 'state-fills',
-'type': 'fill',
-'source': 'senate2022_20230223-2j0yrl',
-'layout': {},
-'paint': {
-'fill-color': '#627BC1',
-'fill-opacity': [
-'case',
-['boolean', ['feature-state', 'hover'], false],
-1,
-0.5
-]
-}
-});
- 
-map.addLayer({
-'id': 'state-borders',
+'id': 'senate2022_20230223-4hzhui',
 'type': 'line',
-'source': 'senate2022_20230223-2j0yrl',
-'layout': {},
+'source': 'senate2022_20230223-4hzhui',
+'layout': {'visibility': 'visible'
+},
 'paint': {
-'line-color': '#627BC1',
-'line-width': 2
-}
+'line-color': '#634700',
+'line-width': 1.5
+},'source-layer': 'senate2022_20230223-4hzhui',
+
 });
- 
 
 
 
@@ -452,26 +443,17 @@ map.addLayer({
 
 
 
-
-
-
-
-
-
-
- });
-let hoveredStateId = null;
-
+ }); 
  
 // After the last frame rendered before the map enters an "idle" state.
 map.on('idle', () => {
 // If these two layers were not added to the map, abort
-if (!map.getLayer('senate2022_20230223-1ipxuq') || !map.getLayer('senate2022_20230223-2j0yrl')) {
+if (!map.getLayer('senate2022_20230223-1ipxuq') || !map.getLayer('senate2022_20230223-2j0yrl') ) {
 return;
 }
  
 // Enumerate ids of the layers.
-const toggleableLayerIds = ['senate2022_20230223-1ipxuq', 'senate2022_20230223-2j0yrl', 'state-fills', 'state-borders'];
+const toggleableLayerIds = ['senate2022_20230223-1ipxuq', 'senate2022_20230223-2j0yrl' ];
  
 // Set up the corresponding toggle button for each layer.
 for (const id of toggleableLayerIds) {
@@ -770,42 +752,76 @@ map.on('mousemove',function(e){
         document.getElemnentById('fcc_use_br').innerHTML ='fcc_use_br';
     }
 });
-
-
- 
-
-map.on('mousemove', 'state-fills', (e) => {
-if (e.features.length > 0) {
-if (hoveredStateId !== null) {
-map.setFeatureState(
-{ source: 'senate2022_20230223-1ipxuq', id: hoveredStateId },
-{ hover: false }
-);
-}
-hoveredStateId = e.features[0].DISTRICT;
-map.setFeatureState(
-{ source: 'states', id: hoveredStateId },
-{ hover: true }
-);
-}
+// Change the cursor to a pointer when the mouse is over the places layer.
+map.on('mouseenter', 'senate2022_20230223-2j0yrl', () => {
+map.getCanvas().style.cursor = 'pointer';
 });
  
-// When the mouse leaves the state-fill layer, update the feature state of the
-// previously hovered feature.
-map.on('mouseleave', 'state-fills', () => {
-if (hoveredStateId !== null) {
-map.setFeatureState(
-{ source: 'senate2022_20230223-1ipxuq', id: hoveredStateId },
-{ hover: false }
-);
-}
-hoveredStateId = null;
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'senate2022_20230223-2j0yrl', () => {
+map.getCanvas().style.cursor = '';
+});
+  
+// When the user moves their mouse over the state-fill layer, we'll update the
+// feature state for the feature under the mouse.
+
+      map.on('mousemove', 'senate2022_20230223-2j0yrl', (e) => {
+        if (e.features.length > 0) {
+          if (hoveredStateId) {
+            map.setFeatureState({
+              source: 'senate2022_20230223-2j0yrl',
+              'sourceLayer': 'senate2022_20230223-2j0yrl',
+              id: hoveredStateId
+            }, {
+              hover: false
+            });
+          }
+          hoveredStateId = e.features[0].id;
+          map.setFeatureState({
+            source: 'senate2022_20230223-2j0yrl',
+            'sourceLayer': 'senate2022_20230223-2j0yrl',
+            id: hoveredStateId
+          }, {
+            hover: true
+          });
+        }
+      });
+
+
+      map.on('mousemove', 'senate2022_20230223-2j0yrl', (e) => {
+
+        map.getCanvas().style.cursor = 'pointer';
+        const description = `
+        <p>County Name: ${e.features[0].properties.county_name}</p>
+        <p>County FIPS: ${e.features[0].properties.county_fips}</p>
+        <p>Feature ID: ${e.features[0].id}</p>
+        <p>Contributions:  ${d3.format("($.2f")(e.features[0].state.per_capita_contributions)} per capita</p>`;
+        
+        popup
+          .setLngLat(e.lngLat)
+          .setHTML(description)
+          .addTo(map);
+      });
+
+      map.on('mouseleave', 'senate2022_20230223-2j0yrl', () => {
+        if (hoveredStateId) {
+          map.setFeatureState({
+            source: 'senate2022_20230223-2j0yrl',
+            'sourceLayer': 'senate2022_20230223-2j0yrl',
+            id: hoveredStateId
+          }, {
+            hover: false
+          });
+        }
+        hoveredStateId = null;
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
 });
 
 
 
-
-});
 </script>
  
 </body>
